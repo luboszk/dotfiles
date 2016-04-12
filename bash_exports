@@ -1,5 +1,5 @@
 WORKON_HOME=~/.virtualenvs
-POWERLINE_EGG=/library/python/2.7/site-packages/powerline_status-2.3.dev9999_git.d7e913280c68c922ab2e37446182ad14589be74a-py2.7.egg
+export POWERLINE_EGG=$(pip show powerline-status | grep Location | awk '{ print $2 }')
 
 # Import passwords required by few applications
 . ~/.pass_exports

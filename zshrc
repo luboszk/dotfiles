@@ -24,9 +24,6 @@ if [ -f ~/.bash_exports ]; then
     . ~/.bash_exports
 fi
 
-# User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
