@@ -21,7 +21,7 @@
 	url = https://github.com/nvie/vim-flake8.git
 [submodule "markdown"]
 	path = vim/bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
+	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "virtualenv"]
 	path = vim/bundle/vim-python-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
