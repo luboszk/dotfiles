@@ -4,3 +4,4 @@ weechat/weechat.log
 # This file contains sensitive data so it not suppose
 # to be shared on git repo
 weechat/irc.conf
+vim/.netrwhist
