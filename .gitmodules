@@ -1,0 +1,27 @@
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "coveragepy"]
+	path = vim/bundle/coveragepy.vim
+	url = https://github.com/alfredodeza/coveragepy.vim.git 
+[submodule "ctrlp"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git 
+[submodule "jedi-vim"]
+	path = vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git 
+[submodule "syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git 
+[submodule "colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git 
+[submodule "flake8"]
+	path = vim/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
+[submodule "markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "virtualenv"]
+	path = vim/bundle/vim-python-virtualenv
+	url = https://github.com/jmcantrell/vim-virtualenv.git
