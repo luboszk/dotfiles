@@ -26,5 +26,5 @@
 	path = vim/bundle/vim-python-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
 [submodule "tmux-plugin-manager"]
-	path = tmux/plugins
+	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
