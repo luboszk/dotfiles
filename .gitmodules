@@ -25,6 +25,9 @@
 [submodule "virtualenv"]
 	path = vim/bundle/vim-python-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule "vim-markdown-preview"]
+	path = vim/bundle/vim-markdown-preview
+	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
 [submodule "tmux-plugin-manager"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
