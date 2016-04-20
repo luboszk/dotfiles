@@ -48,4 +48,4 @@ My Mac OS X dotfiles prepared for development of Python code.
 [url:vim-python-virtualenv]: https://github.com/jmcantrell/vim-virtualenv
 [img:tmux]: imgs/tmux.png "Tmux window in action"
 [img:vim]: imgs/vim.png "VIM window in action"
-[img:vim-omni]: imgs/vim.png "VIM with Omnipopup opened"
+[img:vim-omni]: imgs/vim-omni.png "VIM with Omnipopup opened"
