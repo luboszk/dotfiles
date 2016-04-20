@@ -190,6 +190,12 @@ set laststatus=2
 let g:vim_markdown_initial_foldlevel=1
 
 
+" Settings for vim-markdown-preview
+" ==================================
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_github=1
+
+
 " Settings for ctrlp
 " ===================
 let g:ctrlp_max_height = 30

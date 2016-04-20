@@ -5,4 +5,5 @@ ignore = [
     '.gitmodules',
     '*.swp',
     'README.md',
-    'backup']
+    'backup',
+		'imgs']
