@@ -3,6 +3,7 @@ weechat/weechat.log
 vim/.netrwhist
 tmux/plugins/*
 .DS_Store
+backup/*
 
 # This file contains sensitive data so it not suppose
 # to be shared on git repo
