@@ -1,4 +1,4 @@
-WORKON_HOME=~/.virtualenvs
+export WORKON_HOME=~/.virtualenvs
 export POWERLINE_EGG=$(pip show powerline-status | grep Location | awk '{ print $2 }')
 
 # Import passwords required by few applications
