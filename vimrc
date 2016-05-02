@@ -42,6 +42,11 @@ set mouse=a
 set bs=2 " make backspace behave like normal again
 
 
+" Tab into spaces
+" ================
+set smarttab
+set expandtab
+
 " Sudo write this
 " ================
 cmap w! w !sudo tee % >/dev/null

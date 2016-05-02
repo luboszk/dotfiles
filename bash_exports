@@ -1,5 +1,15 @@
+# Virtualenvwrapper workon dir
+# =============================
 export WORKON_HOME=~/.virtualenvs
+
+# Export powerline egg location for enabling it
+# ==============================================
 export POWERLINE_EGG=$(pip show powerline-status | grep Location | awk '{ print $2 }')
 
+# Settings used to OpenStack development
+# =======================================
+export OS_SRC_DIR=~/src/os
+
 # Import passwords required by few applications
+# ==============================================
 . ~/.pass_exports
