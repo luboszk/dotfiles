@@ -5,6 +5,7 @@
 " Initialize pathogen to load plugins
 " ====================================
 call pathogen#infect()
+call pathogen#helptags()
 
 
 " Global tab size configuration
