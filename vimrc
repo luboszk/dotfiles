@@ -9,14 +9,19 @@ call pathogen#helptags()
 
 
 " Global tab size configuration
-" =============================
+" ==============================
 set tabstop=2
 set shiftwidth=2
 set noexpandtab
 
 
+" Set global indentation method
+" ==============================
+set foldmethod=indent
+
+
 " After saving .vimrc file automatically source it
-" ================================================
+" =================================================
 autocmd! BufWritePost .vimrc source %
 
 
