@@ -2,6 +2,7 @@ weechat/logs/*
 weechat/weechat.log
 vim/.netrwhist
 tmux/plugins/*
+tmux/resurrect/*
 .DS_Store
 backup/*
 
