@@ -10,8 +10,8 @@ call pathogen#helptags()
 
 " Global tab size configuration
 " ==============================
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set noexpandtab
 
 
@@ -133,7 +133,7 @@ set nowrap " don't automatically wrap on load
 set tw=79  " width of document (used by gd)
 set cc=80  " line on specific column
 set fo-=t  " don't automatically wrap text when typing
-set number " show line numbers in files
+set relativenumber " show line numbers in files
 
 
 " Easier formatting of paragraphs

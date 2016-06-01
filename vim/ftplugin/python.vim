@@ -5,16 +5,17 @@ setlocal shiftwidth=4
 setlocal autoindent
 setlocal formatoptions=croql
 
-" Folding
-setlocal foldmethod=indent
-setlocal foldnestmax=2
-
 map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 map <buffer> gd /def <C-R><C-W><CR> 
 
-set foldmethod=expr
-set foldexpr=PythonFoldExpr(v:lnum)
-set foldtext=PythonFoldText()
+
+" Folding
+" ========
+setlocal foldmethod=indent
+setlocal foldnestmax=2
+" setlocal foldmethod=expr
+" setlocal foldexpr=PythonFoldExpr(v:lnum)
+" setlocal foldtext=PythonFoldText()
 
 map <buffer> f za
 map <buffer> F :call ToggleFold()<CR>
@@ -71,7 +72,6 @@ function! PythonFoldExpr(lnum)
     endif
 
     return '='
-
 endfunction
 
 " In case folding breaks down
@@ -88,7 +88,7 @@ endfunction
 set tw=79  " width of document (used by gd)
 set cc=80
 
-" autocmd BufWritePost *.py call Flake8()
+autocmd BufWritePost *.py call Flake8()
 
 " Mapped own key shortcuts
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
