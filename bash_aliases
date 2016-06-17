@@ -1,4 +1,5 @@
 alias rmpyc='find . -name "*.pyc" -exec rm {} \;'
+alias gertty='$WORKON_HOME/gertty/bin/gertty'  
 
 # ex - archive extractor
 # usage: ex <file>

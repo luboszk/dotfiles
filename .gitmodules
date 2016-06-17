@@ -40,3 +40,6 @@
 [submodule "vim/bundle/ansible-vim"]
 	path = vim/bundle/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim
+[submodule "vim/bundle/vim-drawit"]
+	path = vim/bundle/vim-drawit
+	url = https://github.com/vim-scripts/DrawIt.git
