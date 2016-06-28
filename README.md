@@ -2,6 +2,7 @@
 My Mac OS X dotfiles prepared for development of Python code.
 
 # Configuration description
+* [dotfiles][url:dotfiles]
 * ZSH
 * VIM
 * Tmux
@@ -36,6 +37,7 @@ My Mac OS X dotfiles prepared for development of Python code.
 ![alt text][img:vim-omni]
 
 
+[url:dotfiles]: https://pypi.python.org/pypi/dotfiles
 [url:pathogen]: https://github.com/tpope/vim-pathogen
 [url:coveragepy]: https://github.com/alfredodeza/coveragepy
 [url:ctrlp]: https://github.com/ctrlpvim/ctrlp
