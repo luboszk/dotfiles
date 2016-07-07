@@ -5,6 +5,7 @@ tmux/plugins/*
 tmux/resurrect/*
 .DS_Store
 backup/*
+gertty.yaml
 
 # This file contains sensitive data so it not suppose
 # to be shared on git repo
