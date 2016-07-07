@@ -1,3 +1,7 @@
+# Enable brew /usr/local/sbin directory
+# =====================================
+export PATH="/usr/local/sbin:$PATH"
+
 # Virtualenvwrapper workon dir
 # =============================
 export WORKON_HOME=~/.virtualenvs
