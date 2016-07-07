@@ -43,3 +43,9 @@
 [submodule "vim/bundle/vim-drawit"]
 	path = vim/bundle/vim-drawit
 	url = https://github.com/vim-scripts/DrawIt.git
+[submodule "vim/autoload/nerdcommenter.git"]
+	path = vim/autoload/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
