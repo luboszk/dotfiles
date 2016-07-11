@@ -12,7 +12,7 @@ export POWERLINE_EGG=$( if [[ $VIRTUAL_ENV ]] deactivate; pip show powerline-sta
 
 # Settings used to OpenStack development
 # =======================================
-export OS_SRC_DIR=~/src/os
+export OS_SRC_DIR=~/src/openstack
 
 # Import passwords required by few applications
 # ==============================================

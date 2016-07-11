@@ -6,4 +6,4 @@ ignore = [
     '*.swp',
     'README.md',
     'backup',
-		'imgs']
+    'imgs']
