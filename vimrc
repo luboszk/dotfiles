@@ -18,6 +18,7 @@ set noexpandtab
 " Set global indentation method
 " ==============================
 set foldmethod=indent
+set foldlevel=0
 
 
 " After saving .vimrc file automatically source it
@@ -134,6 +135,7 @@ set tw=79  " width of document (used by gd)
 set cc=80  " line on specific column
 set fo-=t  " don't automatically wrap text when typing
 set relativenumber " show line numbers in files
+set number " current line show line number from file
 
 
 " Easier formatting of paragraphs
