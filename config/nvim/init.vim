@@ -34,7 +34,7 @@ syntax on
 
 " Add powerline to VIM RTP
 " =========================
-set rtp+=$POWERLINE_EGG/powerline/bindings/vim
+" set rtp+=$POWERLINE_EGG/powerline/bindings/vim
 
 
 " General option
@@ -195,6 +195,14 @@ let g:jedi#popup_select_first = 1
 " ===========================
 set laststatus=2
 " let g:Powerline_symbols = 'fancy'
+
+
+" Setting for RIV
+" ===============
+let base = {'Name': 'Main project', 'path': '~/Documents/riv', }
+let blog = {'Name': 'blog', 'path': '~/Documents/blog', }
+let g:riv_projects = [base, blog]
+let g:riv_auto_format_table = 0
 
 
 " Settings for vim-markdown

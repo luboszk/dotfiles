@@ -2,60 +2,60 @@
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "coveragepy"]
-	path = vim/bundle/coveragepy.vim
+	path = config/nvim/bundle/coveragepy.vim
 	url = https://github.com/alfredodeza/coveragepy.vim.git 
 [submodule "ctrlp"]
-	path = vim/bundle/ctrlp.vim
+	path = config/nvim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git 
 [submodule "syntastic"]
-	path = vim/bundle/syntastic
+	path = config/nvim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git 
 [submodule "colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
+	path = config/nvim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git 
 [submodule "flake8"]
-	path = vim/bundle/vim-flake8
+	path = config/nvim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
 [submodule "markdown"]
-	path = vim/bundle/vim-markdown
+	path = config/nvim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "virtualenv"]
-	path = vim/bundle/vim-python-virtualenv
+	path = config/nvim/bundle/vim-python-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
 [submodule "tmux-plugin-manager"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "vim/bundle/vim-markdown-preview"]
-	path = vim/bundle/vim-markdown-preview
+[submodule "config/nvim/bundle/vim-markdown-preview"]
+	path = config/nvim/bundle/vim-markdown-preview
 	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
-[submodule "vim/bundle/vimwiki"]
-	path = vim/bundle/vimwiki
+[submodule "config/nvim/bundle/vimwiki"]
+	path = config/nvim/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
-[submodule "vim/bundle/vim-obsession"]
-	path = vim/bundle/vim-obsession
+[submodule "config/nvim/bundle/vim-obsession"]
+	path = config/nvim/bundle/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
-[submodule "vim/bundle/ansible-vim"]
-	path = vim/bundle/ansible-vim
+[submodule "config/nvim/bundle/ansible-vim"]
+	path = config/nvim/bundle/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim
-[submodule "vim/bundle/vim-drawit"]
-	path = vim/bundle/vim-drawit
+[submodule "config/nvim/bundle/vim-drawit"]
+	path = config/nvim/bundle/vim-drawit
 	url = https://github.com/vim-scripts/DrawIt.git
 	ignore = dirty
 [submodule "vim/autoload/nerdcommenter.git"]
 	path = vim/autoload/nerdcommenter.git
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
+[submodule "config/nvim/bundle/nerdcommenter"]
+	path = config/nvim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/jedi-vim"]
-	path = vim/bundle/jedi-vim
+[submodule "config/nvim/bundle/jedi-vim"]
+	path = config/nvim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git 
-[submodule "vim/bundle/riv"]
-	path = vim/bundle/riv
+[submodule "config/nvim/bundle/riv"]
+	path = config/nvim/bundle/riv
 	url = git@github.com:Rykka/riv.vim.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
+[submodule "config/nvim/bundle/vim-airline"]
+	path = config/nvim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule "vim/bundle/vim-airline-themes"]
-	path = vim/bundle/vim-airline-themes
+[submodule "config/nvim/bundle/vim-airline-themes"]
+	path = config/nvim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
