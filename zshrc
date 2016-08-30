@@ -11,7 +11,7 @@ ZSH_THEME="agnoster"
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git virtualenv pip python tmux osx brew autojump vagrant)
+plugins=(git virtualenv pip python tmux osx brew autojump vagrant terraform)
 
 source $ZSH/oh-my-zsh.sh
 source $(which virtualenvwrapper.sh)
