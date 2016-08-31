@@ -4,7 +4,7 @@ My Mac OS X dotfiles prepared for development of Python code.
 # Configuration description
 * [dotfiles][url:dotfiles]
 * ZSH
-* VIM
+* [NeoVIM][url:neovim]
 * Tmux
 * oh-my-zsh
 * Powerline
@@ -29,6 +29,9 @@ My Mac OS X dotfiles prepared for development of Python code.
 * [vim-markdown][url:vim-markdown]
 * [vim-markdown-preview][url:vim-markdown-preview]
 * [vim-python-virtualenv][url:vim-python-virtualenv]
+* [vim-airline][url:vim-airline]
+* [riv][url:riv]
+* [nerdcommenter][url:nerdcommenter]
 
 # Screenshots
 
@@ -37,6 +40,7 @@ My Mac OS X dotfiles prepared for development of Python code.
 ![alt text][img:vim-omni]
 
 
+[url:neovim]: https://neovim.io/
 [url:dotfiles]: https://pypi.python.org/pypi/dotfiles
 [url:pathogen]: https://github.com/tpope/vim-pathogen
 [url:coveragepy]: https://github.com/alfredodeza/coveragepy
@@ -48,6 +52,9 @@ My Mac OS X dotfiles prepared for development of Python code.
 [url:vim-markdown]: https://github.com/plasticboy/vim-markdown
 [url:vim-markdown-preview]: https://github.com/JamshedVesuna/vim-markdown-preview
 [url:vim-python-virtualenv]: https://github.com/jmcantrell/vim-virtualenv
+[url:vim-airline]: https://github.com/vim-airline/vim-airline
+[url:riv]: https://github.com/Rykka/riv.vim
+[url:nerdcommenter]: https://github.com/scrooloose/nerdcommenter
 [img:tmux]: imgs/tmux.png "Tmux window in action"
 [img:vim]: imgs/vim.png "VIM window in action"
 [img:vim-omni]: imgs/vim-omni.png "VIM with Omnipopup opened"
