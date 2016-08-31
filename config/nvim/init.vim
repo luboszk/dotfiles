@@ -32,9 +32,11 @@ filetype plugin indent on
 syntax on
 
 
-" Add powerline to VIM RTP
-" =========================
-" set rtp+=$POWERLINE_EGG/powerline/bindings/vim
+" Configure vim-airline 
+" =====================
+let g:airline_theme='luna'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tmuxline#enabled = 1 " enable tmux integration
 
 
 " General option
@@ -164,9 +166,9 @@ vnoremap > >gv  " better indentation
 map <Leader>a ggVG  " select all
 
 
-" Reload .vimrc file
+" Reload init.vim file
 " ===================
-map <Leader>v :source ~/.vimrc
+map <Leader>v :source ~/.config/nvim/init.vim
 
 
 " Show trailing whitespace
@@ -189,6 +191,10 @@ endfunction
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#popup_on_dot = 1
 let g:jedi#popup_select_first = 1
+
+" Fix autocompletion pop up colors
+hi Pmenu ctermbg=black ctermfg=white
+hi PmenuSel ctermbg=white ctermfg=black
 
 
 " Settings for vim-powerline
