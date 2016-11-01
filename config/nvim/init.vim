@@ -71,7 +71,7 @@ set noswapfile
 
 " Make yank copy to the global system clipboard
 " ==============================================
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 
 " Improving code completion

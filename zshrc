@@ -11,7 +11,7 @@ ZSH_THEME="agnoster"
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git virtualenv pip python tmux osx brew autojump vagrant terraform)
+plugins=(git virtualenv pip python tmux osx brew autojump vagrant terraform docker)
 
 source $ZSH/oh-my-zsh.sh
 source $(which virtualenvwrapper.sh)
@@ -25,7 +25,7 @@ if [ -f ~/.bash_exports ]; then
 fi
 
 # Preferred editor for local and remote sessions
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Ctrl-R for incremental search in both vi modes
 bindkey "^R" history-incremental-search-backward

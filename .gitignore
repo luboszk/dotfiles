@@ -10,3 +10,4 @@ gertty.yaml
 # This file contains sensitive data so it not suppose
 # to be shared on git repo
 weechat/irc.conf
+config/nvim/.netrwhist
