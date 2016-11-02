@@ -88,7 +88,5 @@ endfunction
 set tw=79  " width of document (used by gd)
 set cc=80
 
-autocmd BufWritePost *.py call flake8#Flake8()
-
 " Mapped own key shortcuts
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>

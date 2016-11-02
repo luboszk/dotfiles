@@ -205,8 +205,8 @@ set laststatus=2
 
 " Setting for RIV
 " ===============
-let base = {'Name': 'Main project', 'path': '~/Documents/riv', }
-let blog = {'Name': 'blog', 'path': '~/Documents/blog', }
+let base = { 'Name': 'Main project', 'path': '~/Documents/riv', }
+let blog = { 'Name': 'blog', 'path': '~/Documents/blog', }
 let g:riv_projects = [base, blog]
 let g:riv_auto_format_table = 0
 
@@ -244,3 +244,8 @@ function! OmniPopup(action)
 endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
+" Configure Neomake to be usable
+" ===============================
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list = 1
