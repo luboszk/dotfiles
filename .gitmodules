@@ -62,3 +62,6 @@
 [submodule "config/nvim/bundle/neomake"]
 	path = config/nvim/bundle/neomake
 	url = https://github.com/neomake/neomake.git
+[submodule "config/nvim/bundle/vim-arduino"]
+	path = config/nvim/bundle/vim-arduino
+	url = https://github.com/stevearc/vim-arduino
