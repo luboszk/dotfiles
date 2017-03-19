@@ -1,13 +1,10 @@
+# This file contains sensitive data
+weechat/irc.conf
 weechat/logs/*
 weechat/weechat.log
-vim/.netrwhist
 tmux/plugins/*
 tmux/resurrect/*
 .DS_Store
 backup/*
 gertty.yaml
-
-# This file contains sensitive data so it not suppose
-# to be shared on git repo
-weechat/irc.conf
 config/nvim/.netrwhist
