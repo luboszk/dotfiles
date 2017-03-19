@@ -12,7 +12,8 @@ call pathogen#helptags()
 " ==============================
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set smarttab
+set expandtab
 
 
 " Set global indentation method
@@ -49,12 +50,6 @@ set autoread " reload file when changes happen in other editors
 set tags=./tags
 set mouse=a
 set bs=2 " make backspace behave like normal again
-
-
-" Tab into spaces
-" ================
-set smarttab
-set expandtab
 
 " Sudo write this
 " ================
@@ -205,9 +200,10 @@ set laststatus=2
 
 " Setting for RIV
 " ===============
-let base = { 'Name': 'Main project', 'path': '~/Documents/riv', }
-let blog = { 'Name': 'blog', 'path': '~/Documents/blog', }
-let g:riv_projects = [base, blog]
+let base = { 'Name': 'Main project', 'path': '~/Documents/riv'}
+let blog = { 'Name': 'blog', 'path': '~/Documents/blog'}
+let digarden = {'Name': 'DiGarden', 'path': '~/src/digarden'}
+let g:riv_projects = [base, blog, digarden]
 let g:riv_auto_format_table = 0
 
 
@@ -249,3 +245,18 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 " ===============================
 autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 1
+
+
+" Speed up CtrlP execution time
+" ==============================
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ --ignore "**/*.pyc"
+    \ --ignore .tox
+    \ --ignore .bundle
+    \ --ignore __pycache__
+    \ -g ""'
