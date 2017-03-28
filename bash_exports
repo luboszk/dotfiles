@@ -5,6 +5,10 @@ export EDITOR='nvim'
 # =====================================
 export PATH="/usr/local/sbin:$PATH"
 
+# Enable pipsi ~/.local/bin directory
+# ===================================
+export PATH="$HOME/.local/bin:$PATH"
+
 # Enable go directory in PATH
 # ===========================
 export PATH="$HOME/go/bin:$PATH"
