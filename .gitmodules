@@ -65,3 +65,6 @@
 [submodule "config/nvim/bundle/vim-arduino"]
 	path = config/nvim/bundle/vim-arduino
 	url = https://github.com/stevearc/vim-arduino
+[submodule "config/nvim/bundle/dracula-theme"]
+	path = config/nvim/bundle/dracula-theme
+	url = git@github.com:dracula/vim.git
