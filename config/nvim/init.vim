@@ -207,6 +207,11 @@ let g:riv_projects = [base, blog, digarden]
 let g:riv_auto_format_table = 0
 
 
+" Settings for jedi-vim
+" =====================
+let g:jedi#force_py_version = 3
+
+
 " Settings for vim-markdown
 " ==========================
 " let g:vim_markdown_folding_disabled=1
