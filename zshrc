@@ -39,7 +39,8 @@ function chpwd() {
 }
 
 # Enable powerline in ZSH
-. ${POWERLINE_EGG}/powerline/bindings/zsh/powerline.zsh 
+powerline-daemon -q
+. ${POWERLINE_EGG}/powerline/bindings/zsh/powerline.zsh
 
 # Enable autojump project
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
