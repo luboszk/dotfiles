@@ -6,10 +6,10 @@ ZSH_THEME="agnoster"
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 plugins=(git virtualenv pip python tmux osx brew autojump vagrant terraform \\
-         docker nikola zsh-completions)
+         docker docker-compose nikola zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
-source $(which virtualenvwrapper.sh)
+source $(which virtualenvwrapper.sh) 2>/dev/null
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
