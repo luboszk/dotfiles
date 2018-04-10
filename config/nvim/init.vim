@@ -33,7 +33,7 @@ filetype plugin indent on
 syntax on
 
 
-" Configure vim-airline 
+" Configure vim-airline
 " =====================
 let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
@@ -66,7 +66,7 @@ set noswapfile
 
 " Make yank copy to the global system clipboard
 " ==============================================
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 
 " Improving code completion
@@ -201,9 +201,8 @@ set laststatus=2
 " Setting for RIV
 " ===============
 let base = { 'Name': 'Main project', 'path': '~/Documents/riv'}
-let blog = { 'Name': 'blog', 'path': '~/Documents/blog'}
 let digarden = {'Name': 'DiGarden', 'path': '~/src/digarden'}
-let g:riv_projects = [base, blog, digarden]
+let g:riv_projects = [base, digarden]
 let g:riv_auto_format_table = 0
 
 
