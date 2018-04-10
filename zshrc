@@ -1,9 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="agnoster-only-user"
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($HOME/.zsh/completions /usr/local/share/zsh-completions $fpath)
 
 plugins=(git virtualenv pip python tmux osx brew autojump vagrant terraform \\
          docker docker-compose nikola zsh-completions)
@@ -38,9 +38,10 @@ function chpwd() {
     fi
 }
 
+# Temporarly disable powerline in ZSH due to the performance issues
 # Enable powerline in ZSH
-powerline-daemon -q
-. ${POWERLINE_EGG}/powerline/bindings/zsh/powerline.zsh
+# powerline-daemon -q
+# . ${POWERLINE_EGG}/powerline/bindings/zsh/powerline.zsh
 
 # Enable autojump project
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
