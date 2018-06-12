@@ -24,7 +24,7 @@ export WORKON_HOME=~/.virtualenvs
 
 # Export powerline egg location for enabling it
 # =============================================
-export POWERLINE_EGG=$HOME/.pyenv/versions/powerline/lib/python3.6/site-packages
+export POWERLINE_EGG=$(pyenv root)/versions/powerline/lib/python3.6/site-packages
 
 # Settings used to OpenStack development
 # ======================================
@@ -32,7 +32,7 @@ export OS_SRC_DIR=~/src/openstack
 
 # Import passwords required by few applications
 # =============================================
-. ~/.pass_exports
+# . ~/.pass_exports
 
 # Configure Perl env
 # ==================
@@ -49,3 +49,6 @@ export PATH="/usr/local/opt/freetds@0.91/bin:$PATH"
 # OpenSSL
 # =======
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
