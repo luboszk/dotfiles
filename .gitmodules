@@ -52,7 +52,7 @@
 	url = https://github.com/davidhalter/jedi-vim.git 
 [submodule "config/nvim/bundle/riv"]
 	path = config/nvim/bundle/riv
-	url = git@github.com:Rykka/riv.vim.git
+	url = https://github.com/Rykka/riv.vim.git
 [submodule "config/nvim/bundle/vim-airline"]
 	path = config/nvim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
@@ -67,7 +67,10 @@
 	url = https://github.com/stevearc/vim-arduino
 [submodule "config/nvim/bundle/dracula-theme"]
 	path = config/nvim/bundle/dracula-theme
-	url = git@github.com:dracula/vim.git
+	url = https://github.com/dracula/vim.git
 [submodule "config/nvim/bundle/vim-go"]
 	path = config/nvim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "config/nvim/bundle/deoplete"]
+	path = config/nvim/bundle/deoplete
+	url = https://github.com/Shougo/deoplete.nvim.git
