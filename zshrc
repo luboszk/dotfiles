@@ -4,8 +4,10 @@ ZSH_THEME="" # agnoster
 
 fpath=($HOME/.zsh/completions /usr/local/share/zsh-completions $fpath)
 
-plugins=(git virtualenv pip python tmux osx brew autojump vagrant terraform \\
-         docker docker-compose nikola zsh-completions)
+plugins=(git virtualenv pip python golang tmux osx brew autojump vagrant terraform \\
+         docker docker-compose nikola \\
+	 az \\
+	 zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 source $(which virtualenvwrapper.sh) 2>/dev/null
@@ -47,3 +49,6 @@ powerline-daemon -q
 
 # Enable marker
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+
+# added by travis gem
+[ -f /Users/vn0vt4j/.travis/travis.sh ] && source /Users/vn0vt4j/.travis/travis.sh

@@ -1,12 +1,12 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "tmux-plugin-manager"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
 [submodule "coveragepy"]
 	path = config/nvim/bundle/coveragepy.vim
 	url = https://github.com/alfredodeza/coveragepy.vim.git 
-[submodule "ctrlp"]
-	path = config/nvim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git 
 [submodule "syntastic"]
 	path = config/nvim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git 
@@ -22,9 +22,6 @@
 [submodule "virtualenv"]
 	path = config/nvim/bundle/vim-python-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
-[submodule "tmux-plugin-manager"]
-	path = tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
 [submodule "config/nvim/bundle/vim-markdown-preview"]
 	path = config/nvim/bundle/vim-markdown-preview
 	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
@@ -41,36 +38,21 @@
 	path = config/nvim/bundle/vim-drawit
 	url = https://github.com/vim-scripts/DrawIt.git
 	ignore = dirty
-[submodule "vim/autoload/nerdcommenter.git"]
-	path = vim/autoload/nerdcommenter.git
-	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "config/nvim/bundle/nerdcommenter"]
-	path = config/nvim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "config/nvim/bundle/jedi-vim"]
 	path = config/nvim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git 
 [submodule "config/nvim/bundle/riv"]
 	path = config/nvim/bundle/riv
 	url = https://github.com/Rykka/riv.vim.git
-[submodule "config/nvim/bundle/vim-airline"]
-	path = config/nvim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline
 [submodule "config/nvim/bundle/vim-airline-themes"]
 	path = config/nvim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "config/nvim/bundle/neomake"]
-	path = config/nvim/bundle/neomake
-	url = https://github.com/neomake/neomake.git
 [submodule "config/nvim/bundle/vim-arduino"]
 	path = config/nvim/bundle/vim-arduino
 	url = https://github.com/stevearc/vim-arduino
 [submodule "config/nvim/bundle/dracula-theme"]
 	path = config/nvim/bundle/dracula-theme
 	url = https://github.com/dracula/vim.git
-[submodule "config/nvim/bundle/vim-go"]
-	path = config/nvim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
-[submodule "config/nvim/bundle/deoplete"]
-	path = config/nvim/bundle/deoplete
-	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "marker"]
+	path = marker
+	url = https://github.com/pindexis/marker
