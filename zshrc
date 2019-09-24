@@ -4,9 +4,9 @@ ZSH_THEME="" # agnoster
 
 fpath=($HOME/.zsh/completions /usr/local/share/zsh-completions $fpath)
 
-plugins=(git virtualenv pip python golang tmux osx brew autojump vagrant terraform \\
-         docker docker-compose nikola \\
-	 az \\
+plugins=(git virtualenv pip python golang tmux osx brew autojump vagrant terraform \
+         docker docker-compose nikola \
+	 az \
 	 zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
@@ -18,6 +18,10 @@ fi
 
 if [ -f ~/.bash_exports ]; then
     . ~/.bash_exports
+fi
+
+if [ -f ~/.balabit.sh ]; then
+    . ~/.balabit.sh
 fi
 
 zstyle ':completion:*' accept-exact '*(N)'
@@ -39,7 +43,6 @@ function chpwd() {
     fi
 }
 
-# Temporarly disable powerline in ZSH due to the performance issues
 # Enable powerline in ZSH
 powerline-daemon -q
 . ${POWERLINE_EGG}/powerline/bindings/zsh/powerline.zsh

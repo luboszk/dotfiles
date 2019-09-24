@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AllowClipboardAccess</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -269,6 +271,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>28E8A3D4-8E27-495A-B3E6-B3B99F2FFD60</string>
+	<key>DisableWindowSizeSnap</key>
+	<false/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>GlobalKeyMap</key>
@@ -421,7 +425,7 @@
 	<key>NSNavLastRootDirectory</key>
 	<string>~/.config/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{737, 448}</string>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -453,14 +457,16 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>-1228 153 445 77 -2560 120 2560 1080 </string>
+	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
+	<string>-1588 782 616 174 -2560 120 2560 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 383 620 392 0 0 1440 877 </string>
+	<string>650 606 620 392 0 0 1920 1200 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>501 161 918 512 0 0 1440 900 </string>
+	<string>-1824 452 1018 447 -2560 120 2560 1080 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>155 212 570 452 0 0 1440 900 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>176 425 570 452 0 0 1440 877 </string>
+	<string>-2490 201 1923 962 -2560 120 2560 1080 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -694,7 +700,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string></string>
+			<string>tmux</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -759,6 +765,8 @@
 			<real>1</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Text</key>
+			<string>tmux</string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1204,7 +1212,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MesloLGMForPowerline-Regular 12</string>
+			<string>MesloLGMForPowerline-Regular 10</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1273,10 +1281,12 @@
 			<string>/Users/lubosz</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>CB94D1C9-DE88-4325-8CA4-8DB53BB2DA82</string>
+	<string>86C2CD28-8AEB-43C4-B18E-96CEFD604BB2</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1284,10 +1294,14 @@
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>545291553.093449</real>
+	<real>550485260.59984004</real>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
+	<false/>
+	<key>OpenTmuxWindowsIn</key>
+	<integer>0</integer>
+	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
 	<dict>
@@ -1323,22 +1337,28 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/lubosz/.config/iterm2</string>
+	<string>/Users/vn0vt4j/.config/iterm2</string>
+	<key>Print In Black And White</key>
+	<true/>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=56</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=24</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-06-09T17:24:21Z</date>
+	<date>2019-05-27T07:30:27Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>TerminalVMargin</key>
+	<integer>1</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.1.6</string>
+	<string>3.2.7</string>
 </dict>
 </plist>

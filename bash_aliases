@@ -5,7 +5,7 @@ alias vim="nvim"
 alias nvim-redraw="pkill -WINCH neovim"
 alias gist="gist -c"
 alias bell="echo -n '\\a'"
-alias git="hub"
+#alias git="hub"
 alias stash-review="git stash && git review; git stash pop"
 
 # ex - archive extractor

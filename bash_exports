@@ -1,3 +1,7 @@
+# Enable extra scripts directory in PATH
+# ===========================
+export PATH="$HOME/src/git/scripts:$PATH"
+
 # Enable pyenv
 # ============
 eval "$(pyenv init -)"
@@ -24,7 +28,7 @@ export WORKON_HOME=~/.virtualenvs
 
 # Export powerline egg location for enabling it
 # =============================================
-export POWERLINE_EGG=$(pyenv root)/versions/powerline/lib/python3.6/site-packages
+export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.6/site-packages
 
 # Settings used to OpenStack development
 # ======================================
@@ -50,5 +54,13 @@ export PATH="/usr/local/opt/freetds@0.91/bin:$PATH"
 # =======
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
+# MySQL
+# =====
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# Extra WMT stuff
+# ===============
+source ~/.walmart_exports

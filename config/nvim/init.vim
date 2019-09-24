@@ -1,25 +1,63 @@
 " Global cofiguration file for all files.
 " Every language has own configuration in ftplugin directory
 
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/vn0vt4j/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/vn0vt4j/.cache/dein')
+  call dein#begin('/Users/vn0vt4j/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/vn0vt4j/.cache/dein/repos/github.com/Shougo/dein.vim')
+  " UI for Dein
+  call dein#add('wsdjeg/dein-ui.vim')
+
+  " Global plugins:
+  call dein#add('neomake/neomake')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('scrooloose/nerdcommenter')
+  " Status bar plugins:
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  " Go plugins:
+  call dein#add('fatih/vim-go')
+  call dein#add('zchee/deoplete-go', {'build': 'make'})
+  " Text editing plugins:
+  call dein#add('gu-fan/riv')
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+"End dein Scripts-------------------------
 
 " Initialize pathogen to load plugins
 " ====================================
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
 
 
 " Global tab size configuration
 " ==============================
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab
+"set tabstop=4
+"set shiftwidth=4
+"set smarttab
+"set expandtab
 
 
 " Set global indentation method
 " ==============================
 set foldmethod=indent
-set foldlevel=0
+set foldnestmax=1
 
 
 " After saving .vimrc file automatically source it
@@ -128,8 +166,8 @@ set smartcase
 " Text wrap, document lenght configuration and line numbers
 " ==========================================================
 set nowrap " don't automatically wrap on load
-set tw=79  " width of document (used by gd)
-set cc=80  " line on specific column
+"set tw=79  " width of document (used by gd)
+"set cc=80  " line on specific column
 set fo-=t  " don't automatically wrap text when typing
 set relativenumber " show line numbers in files
 set number " current line show line number from file
@@ -264,3 +302,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
     \ --ignore .bundle
     \ --ignore __pycache__
     \ -g ""'
+
+" Use deoplete
+" =============
+let g:deoplete#enable_at_startup = 1
