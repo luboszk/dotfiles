@@ -1,6 +1,4 @@
 alias rmpyc="find . -name '*.pyc' -delete"
-alias gertty="$WORKON_HOME/gertty/bin/gertty"  
-alias nikola="$WORKON_HOME/nikola/bin/nikola"  
 alias vim="nvim"
 alias nvim-redraw="pkill -WINCH neovim"
 alias gist="gist -c"
