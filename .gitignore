@@ -1,6 +1,16 @@
 # Tmux
 tmux/plugins/*
 tmux/resurrect/*
-# Other
-*/.DS_Store
+
+# Disable whole content of the config directory
+config/*
+
+# Enable for nvim and iterm2 config
+!config/nvim
+!config/iterm2
+
+# Again disable that file as it's a cache
 config/nvim/.netrwhist
+
+# Other
+**/.DS_Store
