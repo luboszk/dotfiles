@@ -28,7 +28,7 @@ export WORKON_HOME=~/.virtualenvs
 
 # Export powerline egg location for enabling it
 # =============================================
-export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.6/site-packages
+export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.7/site-packages
 
 # Settings used to OpenStack development
 # ======================================
@@ -60,6 +60,16 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# NVM
+# ===
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Java
+# ====
+export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
 
 # Extra WMT stuff
 # ===============
