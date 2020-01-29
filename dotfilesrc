@@ -1,4 +1,5 @@
 [dotfiles]
+repository = ~/dotfiles
 packages = ['config']
 ignore = [
     '.git',
@@ -6,5 +7,4 @@ ignore = [
     '.gitmodules',
     '*.swp',
     'README.md',
-    'backup',
     'imgs']
