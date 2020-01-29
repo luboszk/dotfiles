@@ -1,14 +1,6 @@
-# Weechat
-# This file contains sensitive data
-weechat/irc.conf
-# The rest of files
-weechat/logs/*
-weechat/weechat.log
-weechat/script/plugins.xml.gz
 # Tmux
 tmux/plugins/*
 tmux/resurrect/*
 # Other
-.DS_Store
-gertty.yaml
+*/.DS_Store
 config/nvim/.netrwhist
