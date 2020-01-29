@@ -1,15 +1,9 @@
 [user]
 	email = diltram@gmail.com
-	name = Lubosz \"diltram\" Kosnik
-[gitreview]
-	username = diltram
+	name = Lubosz Kosnik
 [push]
 	default = simple
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
 [hub]
 	host = gecgithub01.walmart.com
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+[credential]
+	helper = osxkeychain
