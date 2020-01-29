@@ -7,15 +7,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/vn0vt4j/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/l0k0123/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/vn0vt4j/.cache/dein')
-  call dein#begin('/Users/vn0vt4j/.cache/dein')
+if dein#load_state('/Users/l0k0123/.cache/dein')
+  call dein#begin('/Users/l0k0123/.cache/dein')
 
   " Let dein manage dein
-  " Required:
-  call dein#add('/Users/vn0vt4j/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/l0k0123/.cache/dein/repos/github.com/Shougo/dein.vim')
+
   " UI for Dein
   call dein#add('wsdjeg/dein-ui.vim')
 
@@ -24,14 +24,41 @@ if dein#load_state('/Users/vn0vt4j/.cache/dein')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('scrooloose/nerdcommenter')
+  call dein#add('tpope/vim-obsession')
+  call dein#add('scrooloose/syntastic')
+
   " Status bar plugins:
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+
   " Go plugins:
+  call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
   call dein#add('fatih/vim-go')
   call dein#add('zchee/deoplete-go', {'build': 'make'})
+
+  " Arduino plugins:
+  call dein#add('stevearc/vim-arduino')
+
+  " Pythong programming plugins:
+  call dein#add('davidhalter/jedi-vim')
+  call dein#add('jmcantrell/vim-virtualenv')
+  call dein#add('nvie/vim-flake8')
+  call dein#add('alfredodeza/coveragepy.vim')
+
+  " Ansible plugins:
+  call dein#add('pearofducks/ansible-vim')
+
   " Text editing plugins:
-  call dein#add('gu-fan/riv')
+  call dein#add('gu-fan/riv.vim')
+  call dein#add('plasticboy/vim-markdown')
+  call dein#add('JamshedVesuna/vim-markdown-preview')
+  call dein#add('vim-scripts/DrawIt')
+  call dein#add('vimwiki/vimwiki')
+
+  " Theme plugins:
+  call dein#add('dracula/vim')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('altercation/vim-colors-solarized')
 
   " Required:
   call dein#end()
@@ -39,11 +66,6 @@ if dein#load_state('/Users/vn0vt4j/.cache/dein')
 endif
 
 "End dein Scripts-------------------------
-
-" Initialize pathogen to load plugins
-" ====================================
-"call pathogen#infect()
-"call pathogen#helptags()
 
 
 " Global tab size configuration
@@ -302,6 +324,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
     \ --ignore .bundle
     \ --ignore __pycache__
     \ -g ""'
+
 
 " Use deoplete
 " =============

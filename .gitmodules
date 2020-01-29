@@ -4,55 +4,6 @@
 [submodule "tmux-plugin-manager"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "coveragepy"]
-	path = config/nvim/bundle/coveragepy.vim
-	url = https://github.com/alfredodeza/coveragepy.vim.git 
-[submodule "syntastic"]
-	path = config/nvim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git 
-[submodule "colors-solarized"]
-	path = config/nvim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git 
-[submodule "flake8"]
-	path = config/nvim/bundle/vim-flake8
-	url = https://github.com/nvie/vim-flake8.git
-[submodule "markdown"]
-	path = config/nvim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "virtualenv"]
-	path = config/nvim/bundle/vim-python-virtualenv
-	url = https://github.com/jmcantrell/vim-virtualenv.git
-[submodule "config/nvim/bundle/vim-markdown-preview"]
-	path = config/nvim/bundle/vim-markdown-preview
-	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
-[submodule "config/nvim/bundle/vimwiki"]
-	path = config/nvim/bundle/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
-[submodule "config/nvim/bundle/vim-obsession"]
-	path = config/nvim/bundle/vim-obsession
-	url = https://github.com/tpope/vim-obsession.git
-[submodule "config/nvim/bundle/ansible-vim"]
-	path = config/nvim/bundle/ansible-vim
-	url = https://github.com/pearofducks/ansible-vim
-[submodule "config/nvim/bundle/vim-drawit"]
-	path = config/nvim/bundle/vim-drawit
-	url = https://github.com/vim-scripts/DrawIt.git
-	ignore = dirty
-[submodule "config/nvim/bundle/jedi-vim"]
-	path = config/nvim/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git 
-[submodule "config/nvim/bundle/riv"]
-	path = config/nvim/bundle/riv
-	url = https://github.com/Rykka/riv.vim.git
-[submodule "config/nvim/bundle/vim-airline-themes"]
-	path = config/nvim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "config/nvim/bundle/vim-arduino"]
-	path = config/nvim/bundle/vim-arduino
-	url = https://github.com/stevearc/vim-arduino
-[submodule "config/nvim/bundle/dracula-theme"]
-	path = config/nvim/bundle/dracula-theme
-	url = https://github.com/dracula/vim.git
 [submodule "marker"]
 	path = marker
 	url = https://github.com/pindexis/marker
