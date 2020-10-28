@@ -2,6 +2,10 @@
 # ===========================
 export PATH="$HOME/src/git/scripts:$PATH"
 
+# Configure GOPATH
+# ================
+export GOPATH="$HOME/go"
+
 # Enable pyenv
 # ============
 eval "$(pyenv init -)"
@@ -28,7 +32,7 @@ export WORKON_HOME=~/.virtualenvs
 
 # Export powerline egg location for enabling it
 # =============================================
-export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.7/site-packages
+export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages
 
 # Settings used to OpenStack development
 # ======================================

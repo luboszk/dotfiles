@@ -34,7 +34,6 @@ if dein#load_state('/Users/l0k0123/.cache/dein')
   " Go plugins:
   call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
   call dein#add('fatih/vim-go')
-  call dein#add('zchee/deoplete-go', {'build': 'make'})
 
   " Arduino plugins:
   call dein#add('stevearc/vim-arduino')
@@ -329,3 +328,5 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 " Use deoplete
 " =============
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']

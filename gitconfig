@@ -1,9 +1,17 @@
 [user]
 	email = diltram@gmail.com
 	name = Lubosz Kosnik
+;[url "ssh://git@gecgithub01.walmart.com/"]
+	;insteadOf = https://gecgithub01.walmart.com/
 [push]
 	default = simple
 [hub]
 	host = gecgithub01.walmart.com
 [credential]
 	helper = osxkeychain
+[alias]
+	prs-merged = "!f() { git log --format=oneline ${1-master}..${2-HEAD} | grep \"Merge pull request\" | awk '{ print substr($5, 2) }' | xargs -I {} hub pr show -f \"PR %i: %t by %au (%U)\" {}; }; f"
+        parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
+	my-branches = "!git branch | grep $USER"
+	remove-old-branches = "!git my-branches | xargs git branch -d"
+	bclean = "!f() { git branch --merged ${1-master} | grep -v \" ${1-master}$\" | xargs git branch -d; }; f"
