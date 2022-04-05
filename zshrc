@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="" # agnoster
 
-fpath=($ZSH/custom/plugins $fpath)
+fpath=(/usr/local/share/zsh/site-functions $ZSH/custom/plugins $fpath)
 
 plugins=(
 	git
@@ -65,7 +65,8 @@ powerline-daemon -q
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 
 # added by travis gem
-[ -f /Users/vn0vt4j/.travis/travis.sh ] && source /Users/vn0vt4j/.travis/travis.sh
+[ -f /Users/${USER}/.travis/travis.sh ] && source /Users/${USER}/.travis/travis.sh
 
-# Add extra bash completions
-source /usr/local/etc/bash_completion.d/az
+# gcloud completions
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"

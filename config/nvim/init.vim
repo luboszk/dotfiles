@@ -7,14 +7,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/l0k0123/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/luboszkosnik/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/luboszkosnik/.cache/dein/repos/github.com/google/vim-maktaba
 
 " Required:
-if dein#load_state('/Users/l0k0123/.cache/dein')
-  call dein#begin('/Users/l0k0123/.cache/dein')
+if dein#load_state('/Users/luboszkosnik/.cache/dein')
+  call dein#begin('/Users/luboszkosnik/.cache/dein')
 
   " Let dein manage dein
-  call dein#add('/Users/l0k0123/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/luboszkosnik/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " UI for Dein
   call dein#add('wsdjeg/dein-ui.vim')
@@ -25,15 +26,13 @@ if dein#load_state('/Users/l0k0123/.cache/dein')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('scrooloose/nerdcommenter')
   call dein#add('tpope/vim-obsession')
-  call dein#add('scrooloose/syntastic')
 
   " Status bar plugins:
   call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
 
   " Go plugins:
   call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
-  call dein#add('fatih/vim-go')
+  call dein#add('fatih/vim-go', {'do': ':GoUpdateBinaries'})
 
   " Arduino plugins:
   call dein#add('stevearc/vim-arduino')
@@ -59,6 +58,14 @@ if dein#load_state('/Users/l0k0123/.cache/dein')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('altercation/vim-colors-solarized')
 
+  " Bazel plugins:
+  call dein#add('google/vim-maktaba')
+  call dein#add('bazelbuild/vim-bazel')
+
+  " Terraform plugins:
+  call dein#add('hashivim/vim-terraform')
+  call dein#add('juliosueiras/vim-terraform-completion')
+
   " Required:
   call dein#end()
   call dein#save_state()
@@ -69,10 +76,11 @@ endif
 
 " Global tab size configuration
 " ==============================
-"set tabstop=4
-"set shiftwidth=4
-"set smarttab
-"set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set expandtab
 
 
 " Set global indentation method
@@ -109,6 +117,7 @@ set autoread " reload file when changes happen in other editors
 set tags=./tags
 set mouse=a
 set bs=2 " make backspace behave like normal again
+
 
 " Sudo write this
 " ================
@@ -157,7 +166,7 @@ inoremap <C-z> <C-O>:update<CR>
 
 " Quick quit command
 " ===================
-noremap <Leader>e :quit<CR>
+noremap <leader>e :quit<CR>
 
 
 " Bind nohl
@@ -245,6 +254,7 @@ endfunction
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#popup_on_dot = 1
 let g:jedi#popup_select_first = 1
+let g:jedi#force_py_version = 3
 
 " Fix autocompletion pop up colors
 hi Pmenu ctermbg=black ctermfg=white
@@ -263,11 +273,6 @@ let base = { 'Name': 'Main project', 'path': '~/Documents/riv'}
 let digarden = {'Name': 'DiGarden', 'path': '~/src/digarden'}
 let g:riv_projects = [base, digarden]
 let g:riv_auto_format_table = 0
-
-
-" Settings for jedi-vim
-" =====================
-let g:jedi#force_py_version = 3
 
 
 " Settings for vim-markdown
@@ -304,6 +309,7 @@ endfunction
 inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
+
 " Configure Neomake to be usable
 " ===============================
 autocmd! BufWritePost * Neomake
@@ -325,8 +331,19 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
     \ -g ""'
 
 
+" Settings for vim-terraform
+" ==========================
+let g:terraform_fmt_on_save=1
+let g:terraform_fold_sections=1
+
+
 " Use deoplete
 " =============
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#omni_patterns = {}
+call deoplete#custom#option('omni_patterns', {
+\ 'complete_method': 'omnifunc',
+\ 'terraform': '[^ *\t"{=$]\w*',
+\})
+call deoplete#initialize()

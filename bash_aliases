@@ -5,6 +5,8 @@ alias gist="gist -c"
 alias bell="echo -n '\\a'"
 #alias git="hub"
 alias stash-review="git stash && git review; git stash pop"
+alias k=kubectl
+alias gcm="git checkout master"
 
 # ex - archive extractor
 # usage: ex <file>

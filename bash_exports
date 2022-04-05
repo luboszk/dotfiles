@@ -18,7 +18,7 @@ export EDITOR='nvim'
 # =====================================
 export PATH="/usr/local/sbin:$PATH"
 
-# Enable pipsi ~/.local/bin directory
+# Enable ~/.local/bin directory
 # ===================================
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -34,47 +34,17 @@ export WORKON_HOME=~/.virtualenvs
 # =============================================
 export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages
 
-# Settings used to OpenStack development
-# ======================================
-export OS_SRC_DIR=~/src/openstack
-
 # Import passwords required by few applications
 # =============================================
 # . ~/.pass_exports
 
-# Configure Perl env
-# ==================
-PATH="/Users/luboszko/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/luboszko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/luboszko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/luboszko/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/luboszko/perl5"; export PERL_MM_OPT;
-
-# FreeTDS
-# =======
-export PATH="/usr/local/opt/freetds@0.91/bin:$PATH"
-
-# OpenSSL
-# =======
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-
-# MySQL
-# =====
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+# Export tffilter path
+# ====================
+export PATH=$PATH:~/.cache/dein/repos/github.com/juliosueiras/vim-terraform-completion/bin
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# NVM
-# ===
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Java
-# ====
-export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
-
-# Extra WMT stuff
-# ===============
-source ~/.walmart_exports
+# For local development
+# =====================
+export Host=localhost
