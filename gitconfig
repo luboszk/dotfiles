@@ -14,3 +14,5 @@
 	bclean = "!f() { git branch --merged ${1-master} | grep -v \" ${1-master}$\" | xargs git branch -d; }; f"
 [pull]
 	ff = only
+[init]
+	defaultBranch = master

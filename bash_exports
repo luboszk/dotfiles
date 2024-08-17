@@ -32,7 +32,7 @@ export WORKON_HOME=~/.virtualenvs
 
 # Export powerline egg location for enabling it
 # =============================================
-export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages
+export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.10/site-packages
 
 # Import passwords required by few applications
 # =============================================
@@ -44,7 +44,4 @@ export PATH=$PATH:~/.cache/dein/repos/github.com/juliosueiras/vim-terraform-comp
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-# For local development
-# =====================
-export Host=localhost
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true

@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="" # agnoster
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 fpath=(/usr/local/share/zsh/site-functions $ZSH/custom/plugins $fpath)
 
@@ -29,10 +29,6 @@ fi
 
 if [ -f ~/.bash_exports ]; then
     . ~/.bash_exports
-fi
-
-if [ -f ~/.balabit.sh ]; then
-    . ~/.balabit.sh
 fi
 
 zstyle ':completion:*' accept-exact '*(N)'
@@ -67,6 +63,8 @@ powerline-daemon -q
 # added by travis gem
 [ -f /Users/${USER}/.travis/travis.sh ] && source /Users/${USER}/.travis/travis.sh
 
-# gcloud completions
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# Load fzf
+source <(fzf --zsh)
+
+# Enable Zinit
+source /usr/local/opt/zinit/zinit.zsh
