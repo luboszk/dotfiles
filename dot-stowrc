@@ -1,0 +1,4 @@
+--ignore=scripts
+--ignore=imgs
+--target=/Users/luboszkosnik
+--dotfiles

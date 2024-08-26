@@ -29,19 +29,3 @@ export PATH="$HOME/go/bin:$PATH"
 # Virtualenvwrapper workon dir
 # ============================
 export WORKON_HOME=~/.virtualenvs
-
-# Export powerline egg location for enabling it
-# =============================================
-export POWERLINE_EGG=~/.local/pipx/venvs/powerline-status/lib/python3.10/site-packages
-
-# Import passwords required by few applications
-# =============================================
-# . ~/.pass_exports
-
-# Export tffilter path
-# ====================
-export PATH=$PATH:~/.cache/dein/repos/github.com/juliosueiras/vim-terraform-completion/bin
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true

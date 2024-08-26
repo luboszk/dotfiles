@@ -1,5 +1,0 @@
-syntax: regexp
-.*\.pyc
-.*/.ropeproject/.*
-.*/.weechat/logs/.*
-.*\.venv
