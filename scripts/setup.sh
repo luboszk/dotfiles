@@ -34,7 +34,9 @@ appsToInstall=(
   zoxide # better cd
   font-meslo-lg-nerd-font # MesloLGS Nerd Font Mono
   jq # json processor
-  sketchybar # personal bar manager
+  felixkratz/formulae/sketchybar # personal bar manager
+  font-sf-pro # used by sketchybar
+  sf-symbols # symbols used by sketchybar
   zsh-autosuggestions # autosuggestions for zsh
   zsh-syntax-highlighting # better zsh syntax highlighting
   powerlevel10k # powerlevel until migrated out...
@@ -54,3 +56,9 @@ curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/subl
 popd
 
 bat cache --build
+
+# Sketchybar
+echo -e "\nRemember to disable default bar on Mac OSX by:\nSystem Settings -> Control Center-> Automatically hide and show the menu bar -> Always"
+echo -e "\nTo fix Mission Control set:\nSystem Settings -> Desktop & Dock -> Mission Control and then turn on “Group Windows By Application”"
+
+brew services restart sketchybar
