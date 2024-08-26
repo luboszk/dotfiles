@@ -1,4 +1,0 @@
-vbell off
-defscrollback               10000
-caption always              "%{Wk}%=%w%="
-hardstatus alwayslastline   "%{kb}[ %H ]  %= %{g}%n*%f %t  %-=%{g} %c:%s  %{y}%:%D %d %M %Y"
