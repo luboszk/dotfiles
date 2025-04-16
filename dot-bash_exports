@@ -29,3 +29,4 @@ export PATH="$HOME/go/bin:$PATH"
 # Virtualenvwrapper workon dir
 # ============================
 export WORKON_HOME=~/.virtualenvs
+export PATH=$PATH:/Library/TeX/texbin
