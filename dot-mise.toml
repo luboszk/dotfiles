@@ -1,5 +1,0 @@
-[tools]
-# Terraform is managed by tenv (reads .terraform-version per repo) — do not pin here.
-# Python is managed by uv — do not pin here.
-# Go version pinning is handled by GOTOOLCHAIN=auto + go.mod toolchain directive.
-# Add per-machine non-version-sensitive tools here if needed.
