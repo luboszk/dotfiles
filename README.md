@@ -1,60 +1,134 @@
 # dotfiles
-My Mac OS X dotfiles prepared for development of Python code.
 
-# Configuration description
-* [dotfiles][url:dotfiles]
-* ZSH
-* [NeoVIM][url:neovim]
-* Tmux
-* oh-my-zsh
-* Powerline
+macOS dotfiles for platform engineering. Managed with [GNU Stow](https://www.gnu.org/software/stow/). Works on Intel and Apple Silicon.
 
-## Communication (IRC)
-* Weechat
+## Bootstrap
 
-# Vim plugins
+```sh
+git clone git@github.com:luboszkosnik/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./scripts/bootstrap.sh
+```
 
-### [pathogen.vim][url:pathogen] - one ring to rule them all
-> Manage your 'runtimepath' with ease. In practical terms, pathogen.vim makes
-> it super easy to install plugins and runtime files in their own private
-> directories.
+The script installs Xcode CLT, Homebrew, all tools via `Brewfile`, sets up tmux plugins, bat themes, and runs `stow .` to link everything.
 
-### Bundled
-* [Coveragepy][url:coveragepy]
-* [ctrlp][url:ctrlp]
-* [jedi-vim][url:jedi-vim]
-* [syntastic][url:syntastic]
-* [vim-colors-solarized][url:vim-colors-solarized]
-* [vim-flake8][url:vim-flake8]
-* [vim-markdown][url:vim-markdown]
-* [vim-markdown-preview][url:vim-markdown-preview]
-* [vim-python-virtualenv][url:vim-python-virtualenv]
-* [vim-airline][url:vim-airline]
-* [riv][url:riv]
-* [nerdcommenter][url:nerdcommenter]
+## What's included
 
-# Screenshots
+| Layer | Tool |
+|---|---|
+| Terminal | [WezTerm](https://wezfurlong.org/wezterm/) |
+| Multiplexer | tmux + TPM |
+| Shell | zsh + [zinit](https://github.com/zdharma-continuum/zinit) + [Starship](https://starship.rs/) |
+| Window manager | [Aerospace](https://github.com/nikitabobko/AeroSpace) |
+| Editor (primary) | VSCode — configured via built-in Settings Sync |
+| Editor (secondary) | Neovim + [NvChad](https://nvchad.com/) |
+| Git diffs | [delta](https://github.com/dandavison/delta) side-by-side |
+| File explorer | [yazi](https://github.com/sxyazi/yazi) |
 
-![alt text][img:tmux]
-![alt text][img:vim]
-![alt text][img:vim-omni]
+## Platform engineering tools
 
+Installed via Brewfile:
 
-[url:neovim]: https://neovim.io/
-[url:dotfiles]: https://pypi.python.org/pypi/dotfiles
-[url:pathogen]: https://github.com/tpope/vim-pathogen
-[url:coveragepy]: https://github.com/alfredodeza/coveragepy
-[url:ctrlp]: https://github.com/ctrlpvim/ctrlp
-[url:jedi-vim]: https://github.com/davidhalter/jedi-vim
-[url:syntastic]: https://github.com/scrooloose/syntastic
-[url:vim-colors-solarized]: https://github.com/altercation/vim-colors-solarized
-[url:vim-flake8]: https://github.com/nvie/vim-flake8
-[url:vim-markdown]: https://github.com/plasticboy/vim-markdown
-[url:vim-markdown-preview]: https://github.com/JamshedVesuna/vim-markdown-preview
-[url:vim-python-virtualenv]: https://github.com/jmcantrell/vim-virtualenv
-[url:vim-airline]: https://github.com/vim-airline/vim-airline
-[url:riv]: https://github.com/Rykka/riv.vim
-[url:nerdcommenter]: https://github.com/scrooloose/nerdcommenter
-[img:tmux]: imgs/tmux.png "Tmux window in action"
-[img:vim]: imgs/vim.png "VIM window in action"
-[img:vim-omni]: imgs/vim-omni.png "VIM with Omnipopup opened"
+```
+gh            GitHub CLI + gh-dash extension
+awscli        AWS CLI
+granted       AWS SSO role picker + sso populate (auto-discovers all accounts)
+tenv          Terraform version switcher (reads .terraform-version per repo)
+tflint        Terraform linter
+terraform-docs  Auto-generate module docs
+trivy         IaC + container vuln scanning
+kubectl       Kubernetes CLI
+helm          Kubernetes package manager
+k9s           TUI for Kubernetes
+kubectx/ns    Switch clusters and namespaces
+stern         Multi-pod log tailer
+kustomize     Kubernetes overlays
+colima        Container runtime (docker-compatible)
+docker        Docker CLI
+lazydocker    TUI for docker
+direnv        Per-directory env vars
+sops + age    Secret encryption
+act           Run GitHub Actions locally
+```
+
+## Version management
+
+| Tool | Manager | Single source of truth |
+|---|---|---|
+| Terraform | `tenv` | `.terraform-version` per repo |
+| Go | `GOTOOLCHAIN=auto` (built-in) | `toolchain` directive in `go.mod` |
+| Python | `uv` | `pyproject.toml` / `.python-version` |
+| Node, Java, etc. | `mise` | `.mise.toml` per repo |
+
+### Python (uv) — no virtualenv nonsense
+
+```sh
+uv init my-project        # scaffold pyproject.toml
+uv add requests           # install dep into auto-managed .venv
+uv run main.py            # runs in .venv automatically — no activate
+uv tool install ruff      # global CLI, isolated
+```
+
+### Terraform (tenv)
+
+```sh
+tenv tf install latest           # install latest
+tenv tf install 1.5.7            # install specific version
+# In a repo: add .terraform-version, tenv handles the rest
+```
+
+### AWS SSO (granted) — one-time per machine
+
+```sh
+granted sso login --sso-region <region> --start-url https://<org>.awsapps.com/start
+granted sso populate --sso-region <region> --start-url https://<org>.awsapps.com/start
+# Day-to-day:
+assume                     # interactive picker
+assume <profile-name>      # jump straight in
+assume -c                  # open AWS Console in browser
+```
+
+## Profile system (personal vs work)
+
+Set `DOTFILES_PROFILE=work` in `~/.zshenv` on the work machine. This switches:
+
+- **Secrets backend:** work → 1Password CLI (`op`), personal → macOS Keychain
+- **Git identity:** repos under `~/work/` automatically get the work email via `includeIf` in `.gitconfig`
+
+### Adding a secret
+
+**Personal (Keychain):**
+```sh
+security add-generic-password -a "$USER" -s MY_SECRET_KEY -w '<value>'
+# Then source it in ~/.secrets.local or add to the loader in dot-zshrc
+```
+
+**Work (1Password):**
+```sh
+op item create --category=login --title="my-secret" --vault=Personal credential='<value>'
+# Reference as: op read op://Personal/my-secret/credential
+```
+
+**One-offs (not committing):** add to `~/.secrets.local` (gitignored, sourced automatically).
+
+## First-time setup checklist
+
+### Both machines
+- [ ] Run `./scripts/bootstrap.sh`
+- [ ] Open VSCode → `Cmd+Shift+P` → `Settings Sync: Turn On` → sign in with GitHub
+- [ ] Open nvim (`nvim`) — NvChad auto-installs plugins on first launch
+
+### Work machine (M4 Apple Silicon)
+- [ ] Add `export DOTFILES_PROFILE=work` to `~/.zshenv`
+- [ ] Create `~/.gitconfig-work` with your work `[user]` email block
+- [ ] Run `op signin`
+- [ ] Run `granted sso login` + `granted sso populate` (see AWS SSO section above)
+
+### Personal machine (Intel)
+- [ ] Store API keys in Keychain (`security add-generic-password ...`)
+
+## Updating
+
+```sh
+cd ~/dotfiles && git pull && brew bundle && stow .
+```

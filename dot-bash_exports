@@ -1,32 +1,17 @@
-# Enable extra scripts directory in PATH
-# ===========================
-export PATH="$HOME/src/git/scripts:$PATH"
+# ---- Homebrew bootstrap (arch-aware: Intel /usr/local, Apple Silicon /opt/homebrew) ----
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
-# Configure GOPATH
-# ================
-export GOPATH="$HOME/go"
-
-# Enable pyenv
-# ============
-eval "$(pyenv init -)"
-
-# Preferred editor for local and remote sessions
-# ==============================================
+# ---- Toolchains & PATH ----
 export EDITOR='nvim'
+export GOPATH="$HOME/go"
+export GOTOOLCHAIN=auto
+export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/src/git/scripts:$PATH"
+[[ -d "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "/Library/TeX/texbin" ]] && export PATH="$PATH:/Library/TeX/texbin"
 
-# Enable brew /usr/local/sbin directory
-# =====================================
-export PATH="/usr/local/sbin:$PATH"
-
-# Enable ~/.local/bin directory
-# ===================================
-export PATH="$HOME/.local/bin:$PATH"
-
-# Enable go directory in PATH
-# ===========================
-export PATH="$HOME/go/bin:$PATH"
-
-# Virtualenvwrapper workon dir
-# ============================
-export WORKON_HOME=~/.virtualenvs
-export PATH=$PATH:/Library/TeX/texbin
+# ---- mise (per-repo tool versions; auto-activates on cd) ----
+command -v mise >/dev/null && eval "$(mise activate zsh)"

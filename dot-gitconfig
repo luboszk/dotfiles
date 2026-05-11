@@ -7,12 +7,34 @@
 	default = simple
 [credential]
 	helper = osxkeychain
-[alias]
-    rebaseatmaster = pull --rebase origin master
-	prs-merged = "!f() { git log --format=oneline ${1-master}..${2-HEAD} | grep \"Merge pull request\" | awk '{ print substr($5, 2) }' | xargs -I {} hub pr show -f \"PR %i: %t by %au (%U)\" {}; }; f"
-    parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
-	bclean = "!f() { git branch --merged ${1-master} | grep -v \" ${1-master}$\" | xargs git branch -d; }; f"
 [pull]
 	ff = only
 [init]
-	defaultBranch = master
+	defaultBranch = main
+[fetch]
+	prune = true
+[rerere]
+	enabled = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	colorMoved = default
+	algorithm = histogram
+[core]
+	pager = delta
+	excludesfile = ~/.gitignore_global
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+[alias]
+	rebaseatmain = pull --rebase origin main
+	prs-merged = "!f() { git log --format=oneline ${1-main}..${2-HEAD} | grep 'Merge pull request' | awk '{ print substr($5, 2) }' | xargs -I {} gh pr view {} --json number,title,author,url -t 'PR {{.number}}: {{.title}} by {{.author.login}} ({{.url}})'; }; f"
+	parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
+	bclean = "!f() { git branch --merged ${1-main} | grep -v \" ${1-main}$\" | xargs git branch -d; }; f"
+
+# Per-machine identity: inside ~/work/ the work email is layered in.
+# Create ~/.gitconfig-work manually on the work machine — it is never committed.
+[includeIf "gitdir:~/work/"]
+	path = ~/.gitconfig-work

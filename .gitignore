@@ -1,16 +1,6 @@
-# Tmux
-tmux/plugins/*
-tmux/resurrect/*
-
-# Disable whole content of the config directory
-config/*
-
-# Enable for nvim and iterm2 config
-!config/nvim
-!config/iterm2
-
-# Again disable that file as it's a cache
-config/nvim/.netrwhist
-
-# Other
 **/.DS_Store
+.secrets.local
+dot-secrets.local
+.gitconfig-work
+dot-config/nvim/.netrwhist
+dot-config/nvim.bak/

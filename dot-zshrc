@@ -26,8 +26,17 @@ bindkey '^[[B' history-search-forward
 # enable vi keybinding mode
 bindkey -v
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ---- zinit (zsh plugin manager) ----
+source "$(brew --prefix)/opt/zinit/zinit.zsh"
+
+# Turbo mode: plugins load after prompt for snappy shell startup
+zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        zdharma-continuum/fast-syntax-highlighting \
+    atload"_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions \
+    blockf atpull'zinit creinstall -q .' \
+        zsh-users/zsh-completions
 
 # ---- FZF -----
 
@@ -101,7 +110,44 @@ alias ls="eza --icons=always"
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
-alias cd="z"
+# ---- Platform tools ----
+command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+command -v gh >/dev/null && eval "$(gh completion -s zsh)"
+
+if command -v kubectl >/dev/null; then
+  source <(kubectl completion zsh)
+  alias kctx=kubectx
+  alias kns=kubens
+  alias kgp='kubectl get pods'
+  alias kgs='kubectl get svc'
+  alias kdp='kubectl describe pod'
+  alias kl='kubectl logs -f'
+fi
+
+if command -v terraform >/dev/null; then
+  alias tf=terraform
+  complete -o nospace -C terraform tf
+fi
+
+command -v assume >/dev/null && alias awsume='source assume'
+alias aws-populate='granted sso populate'
+
+# ---- Secrets (env- and machine-aware) ----
+# work    → 1Password CLI (set DOTFILES_PROFILE=work in ~/.zshenv on work machine)
+# personal → macOS Keychain
+# one-offs → ~/.secrets.local (gitignored)
+if [[ "$DOTFILES_PROFILE" == "work" ]] && command -v op >/dev/null; then
+  export OPENAI_API_KEY="$(op read op://Personal/openai/credential 2>/dev/null)"
+  export PULUMI_ACCESS_TOKEN="$(op read op://Personal/pulumi/credential 2>/dev/null)"
+else
+  export OPENAI_API_KEY="$(security find-generic-password -s OPENAI_API_KEY -w 2>/dev/null)"
+  export PULUMI_ACCESS_TOKEN="$(security find-generic-password -s PULUMI_ACCESS_TOKEN -w 2>/dev/null)"
+fi
+[[ -f ~/.secrets.local ]] && source ~/.secrets.local
 
 # ---- Starship ----
 eval "$(starship init zsh)"
+
+# Added by Windsurf
+export PATH="/Users/luboszkosnik/.codeium/windsurf/bin:$PATH"
+
