@@ -67,8 +67,15 @@ if [[ ! -f ~/.colima/default/colima.yaml ]]; then
   colima stop
 fi
 
-# 11. Stow dotfiles
-stow .
+# 11. Stow dotfiles — force-adopt pre-existing real files, then restore the
+# repo version so the symlinks point at our copies (not the system's).
+# WARNING: this also wipes uncommitted edits inside the repo. Bootstrap is
+# expected to run from a clean checkout.
+stow --adopt .
+git restore .
+
+# 12. TPM plugins (needs ~/.tmux.conf in place, i.e. post-stow)
+~/.tmux/plugins/tpm/bin/install_plugins
 
 echo ""
 echo ">>> Bootstrap complete."
