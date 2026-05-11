@@ -2,10 +2,12 @@
 tap "common-fate/granted"
 
 # ---- Foundational ----
+brew "git"            # brew git > macOS bundled (older version)
 brew "stow"
 brew "tmux"
+brew "neovim"
 brew "starship"
-brew "zinit"          # zsh plugin manager (autosuggestions, syntax-highlighting via turbo mode)
+brew "zinit"          # zsh plugin manager; fetches plugins from GitHub (not brew versions)
 brew "fzf"
 brew "fd"
 brew "ripgrep"
