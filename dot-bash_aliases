@@ -5,7 +5,7 @@ alias gist="gist -c"
 alias bell="echo -n '\\a'"
 alias stash-review="git stash && git review; git stash pop"
 alias k=kubectl
-alias gcm="git checkout main"
+gcm() { git checkout "$(git default-branch)"; }
 alias claude="~/.claude/local/claude"
 
 # VSCode

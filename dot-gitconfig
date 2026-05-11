@@ -37,10 +37,11 @@
 [gpg "ssh"]
 	defaultKeyCommand = ssh-add -L
 [alias]
-	rebaseatmain = pull --rebase origin main
-	prs-merged = "!f() { git log --format=oneline ${1-main}..${2-HEAD} | grep 'Merge pull request' | awk '{ print substr($5, 2) }' | xargs -I {} gh pr view {} --json number,title,author,url -t 'PR {{.number}}: {{.title}} by {{.author.login}} ({{.url}})'; }; f"
+	default-branch = "!git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||' || git branch --list main master | grep -m1 . | tr -d '* '"
+	rebaseatmain = "!git pull --rebase origin $(git default-branch)"
+	prs-merged = "!f() { b=$(git default-branch); git log --format=oneline ${1-$b}..${2-HEAD} | grep 'Merge pull request' | awk '{ print substr($5, 2) }' | xargs -I {} gh pr view {} --json number,title,author,url -t 'PR {{.number}}: {{.title}} by {{.author.login}} ({{.url}})'; }; f"
 	parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
-	bclean = "!f() { git branch --merged ${1-main} | grep -v \" ${1-main}$\" | xargs git branch -d; }; f"
+	bclean = "!f() { b=$(git default-branch); git branch --merged ${1-$b} | grep -v \" ${1-$b}$\" | xargs git branch -d; }; f"
 
 # Per-machine identity: inside ~/work/ the work email is layered in.
 # Create ~/.gitconfig-work manually on the work machine — it is never committed.
