@@ -131,13 +131,18 @@ If you ever need to pin a specific key (e.g. you have multiple SSH keys and want
 # Check what keys are in your agent
 ssh-add -L
 
-# Pin one explicitly (writes to ~/.gitconfig, which is stowed from dot-gitconfig)
+# Pin one explicitly
 git config --global user.signingkey ~/.ssh/id_ed25519.pub
 ```
 
-To tell GitHub about your signing key: **Settings → SSH and GPG keys → New SSH key → Key type: Signing Key**. Once added, your commits will show "Verified" on GitHub.
+To register this machine's key as a signing key on GitHub, run the included script:
 
-> **Note:** if you use 1Password SSH agent on the work machine, set `signingkey` to the public key shown in 1Password under the SSH key item, and make sure the 1Password SSH agent is enabled in 1Password settings.
+```sh
+./scripts/setup-github-signing.sh            # uses hostname as key title
+./scripts/setup-github-signing.sh "work-m4"  # custom title
+```
+
+Once registered, commits will show "Verified" on GitHub.
 
 ---
 
@@ -151,13 +156,13 @@ To tell GitHub about your signing key: **Settings → SSH and GPG keys → New S
 ### Work machine (M4 Apple Silicon)
 - [ ] Add `export DOTFILES_PROFILE=work` to `~/.zshenv`
 - [ ] Create `~/.gitconfig-work` (see [Per-machine git identity](#per-machine-git-identity-gitconfig-work) above)
-- [ ] Add your work SSH signing key to GitHub: Settings → SSH and GPG keys → New SSH key → **Signing Key**
+- [ ] Run `./scripts/setup-github-signing.sh "work-m4"` to register the signing key on GitHub
 - [ ] Run `op signin`
 - [ ] Run `granted sso login` + `granted sso populate` (see AWS SSO section above)
 
 ### Personal machine (Intel)
 - [ ] Store API keys in Keychain (`security add-generic-password ...`)
-- [ ] Add your personal SSH signing key to GitHub: Settings → SSH and GPG keys → New SSH key → **Signing Key** (paste output of `cat ~/.ssh/id_rsa.pub`)
+- [ ] Run `./scripts/setup-github-signing.sh` to register the signing key on GitHub
 
 ## Updating
 
