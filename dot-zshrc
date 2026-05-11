@@ -111,8 +111,8 @@ alias ls="eza --icons=always"
 eval "$(zoxide init zsh)"
 
 # ---- Colima (container runtime) ----
-alias docker-start='brew services start colima'
-alias docker-stop='brew services stop colima'
+alias docker-start='colima start'
+alias docker-stop='colima stop'
 alias docker-status='colima status'
 
 
