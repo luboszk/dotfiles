@@ -20,6 +20,9 @@ if ! gh auth status >/dev/null 2>&1; then
   exit 1
 fi
 
+# Ensure the admin:ssh_signing_key scope is granted (not included in default login)
+gh auth refresh -h github.com -s admin:ssh_signing_key
+
 TITLE="${1:-$(hostname -s)}"
 
 echo "Adding $KEY as a signing key on GitHub (title: $TITLE)..."
