@@ -20,7 +20,17 @@ else
 fi
 
 # 3. Bundle install (idempotent)
+# If terraform was previously installed directly alongside tenv, remove it first
+# to avoid a PATH conflict (tenv provides the terraform shim).
+if brew list terraform &>/dev/null && brew list tenv &>/dev/null; then
+  echo ">>> Removing direct terraform install — tenv manages terraform versions"
+  brew uninstall terraform
+fi
+
 brew bundle --file=./Brewfile
+
+# tenv shims need to be linked if terraform was just removed
+brew link tenv 2>/dev/null || true
 
 # 4. TPM (tmux plugin manager)
 [[ -d ~/.tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

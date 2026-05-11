@@ -1,4 +1,5 @@
 **/.DS_Store
+.claude/
 .secrets.local
 dot-secrets.local
 .gitconfig-work
