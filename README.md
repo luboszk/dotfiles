@@ -119,20 +119,20 @@ The tracked `dot-gitconfig` holds your personal identity. On the **work machine*
 [user]
     name = Lubosz Kosnik
     email = lubosz@<your-company>.com
-    signingkey = ~/.ssh/id_ed25519.pub   # path to your work SSH public key
+    # Optional: pin a specific key instead of relying on the SSH agent
+    # signingkey = ~/.ssh/id_ed25519.pub
 ```
 
-On the **personal machine**, set your signing key directly in `~/.gitconfig` (after stow links `dot-gitconfig`):
+Commit signing is on by default (`commit.gpgsign = true`, `gpg.format = ssh`). By default, git uses `ssh-add -L` to pick the signing key from your SSH agent — macOS loads keys from Keychain automatically, so this Just Works on both machines without any hardcoded paths.
+
+If you ever need to pin a specific key (e.g. you have multiple SSH keys and want to be explicit):
 
 ```sh
+# Check what keys are in your agent
+ssh-add -L
+
+# Pin one explicitly (writes to ~/.gitconfig, which is stowed from dot-gitconfig)
 git config --global user.signingkey ~/.ssh/id_ed25519.pub
-```
-
-Commit signing is on by default (`commit.gpgsign = true`, `gpg.format = ssh`). To find your SSH public key:
-
-```sh
-ls ~/.ssh/*.pub           # list available public keys
-cat ~/.ssh/id_ed25519.pub # copy this value into signingkey
 ```
 
 To tell GitHub about your signing key: **Settings → SSH and GPG keys → New SSH key → Key type: Signing Key**. Once added, your commits will show "Verified" on GitHub.
@@ -157,8 +157,7 @@ To tell GitHub about your signing key: **Settings → SSH and GPG keys → New S
 
 ### Personal machine (Intel)
 - [ ] Store API keys in Keychain (`security add-generic-password ...`)
-- [ ] Set signing key: `git config --global user.signingkey ~/.ssh/id_ed25519.pub`
-- [ ] Add your personal SSH signing key to GitHub: Settings → SSH and GPG keys → New SSH key → **Signing Key**
+- [ ] Add your personal SSH signing key to GitHub: Settings → SSH and GPG keys → New SSH key → **Signing Key** (paste output of `cat ~/.ssh/id_rsa.pub`)
 
 ## Updating
 
