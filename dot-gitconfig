@@ -1,6 +1,7 @@
 [user]
 	name = Lubosz Kosnik
 	email = lubosz.kosnik@gmail.com
+	signingkey = /Users/luboszkosnik/.ssh/id_rsa.pub
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [push]
@@ -28,6 +29,12 @@
 [delta]
 	navigate = true
 	side-by-side = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg]
+	format = ssh
 [alias]
 	rebaseatmain = pull --rebase origin main
 	prs-merged = "!f() { git log --format=oneline ${1-main}..${2-HEAD} | grep 'Merge pull request' | awk '{ print substr($5, 2) }' | xargs -I {} gh pr view {} --json number,title,author,url -t 'PR {{.number}}: {{.title}} by {{.author.login}} ({{.url}})'; }; f"

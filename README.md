@@ -111,6 +111,36 @@ op item create --category=login --title="my-secret" --vault=Personal credential=
 
 **One-offs (not committing):** add to `~/.secrets.local` (gitignored, sourced automatically).
 
+## Per-machine git identity (`~/.gitconfig-work`)
+
+The tracked `dot-gitconfig` holds your personal identity. On the **work machine**, create `~/.gitconfig-work` (never committed) — git loads it automatically for any repo under `~/work/`:
+
+```ini
+[user]
+    name = Lubosz Kosnik
+    email = lubosz@<your-company>.com
+    signingkey = ~/.ssh/id_ed25519.pub   # path to your work SSH public key
+```
+
+On the **personal machine**, set your signing key directly in `~/.gitconfig` (after stow links `dot-gitconfig`):
+
+```sh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+```
+
+Commit signing is on by default (`commit.gpgsign = true`, `gpg.format = ssh`). To find your SSH public key:
+
+```sh
+ls ~/.ssh/*.pub           # list available public keys
+cat ~/.ssh/id_ed25519.pub # copy this value into signingkey
+```
+
+To tell GitHub about your signing key: **Settings → SSH and GPG keys → New SSH key → Key type: Signing Key**. Once added, your commits will show "Verified" on GitHub.
+
+> **Note:** if you use 1Password SSH agent on the work machine, set `signingkey` to the public key shown in 1Password under the SSH key item, and make sure the 1Password SSH agent is enabled in 1Password settings.
+
+---
+
 ## First-time setup checklist
 
 ### Both machines
@@ -120,12 +150,15 @@ op item create --category=login --title="my-secret" --vault=Personal credential=
 
 ### Work machine (M4 Apple Silicon)
 - [ ] Add `export DOTFILES_PROFILE=work` to `~/.zshenv`
-- [ ] Create `~/.gitconfig-work` with your work `[user]` email block
+- [ ] Create `~/.gitconfig-work` (see [Per-machine git identity](#per-machine-git-identity-gitconfig-work) above)
+- [ ] Add your work SSH signing key to GitHub: Settings → SSH and GPG keys → New SSH key → **Signing Key**
 - [ ] Run `op signin`
 - [ ] Run `granted sso login` + `granted sso populate` (see AWS SSO section above)
 
 ### Personal machine (Intel)
 - [ ] Store API keys in Keychain (`security add-generic-password ...`)
+- [ ] Set signing key: `git config --global user.signingkey ~/.ssh/id_ed25519.pub`
+- [ ] Add your personal SSH signing key to GitHub: Settings → SSH and GPG keys → New SSH key → **Signing Key**
 
 ## Updating
 
