@@ -32,6 +32,11 @@ brew bundle --file=./Brewfile
 # tenv shims need to be linked if terraform was just removed
 brew link tenv 2>/dev/null || true
 
+# Docker Desktop (if installed outside of brew) owns /usr/local/bin/docker,
+# docker-compose, and kubectl symlinks — overwrite them with brew-managed versions
+# so colima + brew CLI is the consistent runtime, not Docker Desktop's bundled CLIs.
+brew link --overwrite docker docker-compose kubernetes-cli 2>/dev/null || true
+
 # 4. TPM (tmux plugin manager)
 [[ -d ~/.tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
