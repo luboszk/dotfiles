@@ -111,6 +111,62 @@ op item create --category=login --title="my-secret" --vault=Personal credential=
 
 **One-offs (not committing):** add to `~/.secrets.local` (gitignored, sourced automatically).
 
+## VSCode vim setup
+
+Install the `vscodevim.vim` extension, then paste the vim block from below into `Cmd+Shift+P` → "Open User Settings (JSON)". Key mappings mirror the old nvim workflow:
+
+| Binding | Action |
+|---|---|
+| `<leader>ff` | Quick open file (was telescope) |
+| `<leader>fg` | Find in files (was telescope live\_grep) |
+| `<leader>e` | Toggle file explorer (was nvim-tree) |
+| `<leader>xx` | Problems panel (was trouble) |
+| `<C-h/j/k/l>` | Focus split left/down/up/right |
+| `<S-h>` / `<S-l>` | Previous / next tab (was bufferline) |
+| `gd` / `gr` / `gi` / `gh` | Go to definition / references / implementation / hover |
+| `<leader>ca` | Code actions (quick fix) |
+| `<leader>rn` | Rename symbol |
+| `gcc` / `gc{motion}` | Comment line / block (built-in, no config needed) |
+| `ys` / `cs` / `ds` | Surround add / change / delete (was surround.lua) |
+| `gr{motion}` | Replace without clobbering yank register |
+| `<leader><leader>w/b/f` | EasyMotion jump |
+
+### Ctrl key conflicts
+
+VSCodeVim handles `<C-h/j/k/l>` automatically in Normal mode. The one real conflict is **`Ctrl+K`** — VSCode treats it as a chord prefix and swallows it before VSCodeVim gets it. Fix it in `Cmd+Shift+P` → "Open Keyboard Shortcuts (JSON)":
+
+```json
+[
+  {
+    "key": "ctrl+k",
+    "command": "-workbench.action.focusActiveEditorGroup",
+    "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-workbench.action.togglePanel",
+    "when": "vim.active && vim.mode == 'Normal' && editorTextFocus"
+  }
+]
+```
+
+The `-` prefix removes the built-in binding rather than adding a new one, unblocking the key for VSCodeVim. Only add these if you actually hit the conflict — most setups only need the `Ctrl+K` one.
+
+### Extensions
+
+Managed via Settings Sync (sign in with GitHub on first launch). The reference list lives in `scripts/vscode-extensions.txt`. To bootstrap a new machine before signing in:
+
+```sh
+./scripts/install-vscode-extensions.sh
+```
+
+To exclude a work-only extension from syncing to your personal machine, add it to `settings.json`:
+```json
+"settingsSync.ignoredExtensions": ["bazelbuild.vscode-bazel"]
+```
+
+---
+
 ## Per-machine git identity (`~/.gitconfig-work`)
 
 The tracked `dot-gitconfig` holds your personal identity. On the **work machine**, create `~/.gitconfig-work` (never committed) — git loads it automatically for any repo under `~/work/`:
