@@ -1,0 +1,11 @@
+# Work machine (M4 Apple Silicon) — sourced automatically when DOTFILES_PROFILE=work
+# Sensitive internals (internal URLs, tokens, work aliases) go in ~/.zshrc.work.local
+
+# Colima with more resources (M4 has headroom)
+alias docker-start='colima start --cpu 6 --memory 12'
+
+# AWS default region for work
+export AWS_DEFAULT_REGION=eu-west-1
+
+# Work repos live under ~/work/ — make sure the directory exists
+[[ ! -d ~/work ]] && mkdir -p ~/work

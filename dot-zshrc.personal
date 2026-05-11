@@ -1,0 +1,8 @@
+# Personal machine (Intel MBP) — sourced automatically when DOTFILES_PROFILE=personal
+# Sensitive internals go in ~/.zshrc.personal.local
+
+# Colima with conservative resources (Intel, less RAM)
+alias docker-start='colima start --cpu 2 --memory 4'
+
+# Personal AWS default region
+export AWS_DEFAULT_REGION=eu-west-1
