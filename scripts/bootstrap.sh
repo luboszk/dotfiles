@@ -60,8 +60,14 @@ tenv tf use latest
 # 9. gh extensions (idempotent)
 gh extension install dlvhdr/gh-dash 2>/dev/null || true
 
-# 10. Colima default profile (skip if already running)
-colima status >/dev/null 2>&1 || colima start --cpu 4 --memory 8
+# 10. Colima — write default profile then register as a launchd service
+# Start once with resource flags to persist them to ~/.colima/default/colima.yaml,
+# then stop and hand off to brew services so it auto-starts at every login.
+if ! colima status --quiet 2>/dev/null; then
+  colima start --cpu 4 --memory 8 --disk 60
+  colima stop
+fi
+brew services start colima 2>/dev/null || true
 
 # 11. Stow dotfiles
 stow .
