@@ -1,0 +1,41 @@
+# VSCode extensions — source of truth for bootstrapping a new machine.
+# Settings Sync handles day-to-day propagation; this is the fallback.
+# Install all: scripts/install-vscode-extensions.sh
+# Update this file: code --list-extensions > scripts/vscode-extensions.txt (then edit)
+
+# ---- Vim ----
+vscodevim.vim
+
+# ---- Theme & appearance ----
+catppuccin.catppuccin-vsc
+PKief.vscode-icons
+usernamehw.errorlens
+
+# ---- Git ----
+eamodio.gitlens
+waderyan.gitblame
+github.vscode-github-actions
+
+# ---- Platform engineering ----
+hashicorp.terraform
+golang.go
+ms-kubernetes-tools.vscode-kubernetes-tools
+tamasfe.even-better-toml
+zxh404.vscode-proto3
+ms-vscode-remote.remote-containers
+
+# ---- Python ----
+ms-python.python
+ms-python.vscode-pylance
+ms-python.debugpy
+
+# ---- Productivity ----
+streetsidesoftware.code-spell-checker
+github.copilot-chat
+saoudrizwan.claude-dev
+
+# ---- Machine-specific (install manually, not via this script) ----
+# bazelbuild.vscode-bazel      — work only
+# ms-azuretools.vscode-containers  — work only
+# nickgo.cuelang               — work only
+# phgn.vscode-starlark         — work only (Bazel/Starlark)
