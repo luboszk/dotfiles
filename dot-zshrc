@@ -1,3 +1,35 @@
+# ============================================================================
+# Architecture notes — read before editing
+# ============================================================================
+#
+# Plugin manager: zinit, in *turbo mode* (line ~52 below). Plugins and compinit
+# load AFTER the prompt appears, so the shell feels instant.
+#
+# Implication: at the time this file is being parsed, `compdef` and `complete`
+# DO NOT EXIST. Any line that calls them at parse time will fail with:
+#     zsh: command not found: compdef
+#
+# How to register a completion safely:
+#   1. Define the completion function at top level (a plain shell function —
+#      no compinit required).
+#   2. Add `compdef <fn> <command>` (or `complete ...`) INSIDE the
+#      `_load_deferred_completions` function — zinit fires it after compinit
+#      via `atinit"...; _load_deferred_completions"`.
+#
+# Same rule applies to tool completions that internally call compdef/complete
+# (gh, kubectl, terraform are already wired up this way as examples).
+#
+# Other load-bearing pieces:
+#   - History: shared across sessions (`share_history`), dedup on save.
+#   - FZF: `fzf --zsh` provides keybindings; fd is the underlying lister;
+#     previews use bat/eza.
+#   - Profile split: ~/.zshenv sets DOTFILES_PROFILE (work|personal). This
+#     file then sources ~/.zshrc.$PROFILE and ~/.zshrc.$PROFILE.local (the
+#     `.local` files are gitignored for secrets / per-machine config).
+#   - Secrets: 1Password on work, macOS Keychain on personal, ~/.secrets.local
+#     for one-offs.
+# ============================================================================
+
 # Load aliases and exports
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -37,6 +69,14 @@ _load_deferred_completions() {
   command -v gh >/dev/null && eval "$(gh completion -s zsh)"
   command -v kubectl >/dev/null && source <(kubectl completion zsh)
   command -v terraform >/dev/null && complete -o nospace -C terraform tf
+  compdef _make_targets make
+}
+
+# Make: complete only targets (built-in _make also offers every env var as VAR=)
+_make_targets() {
+  local targets
+  targets=(${(f)"$(make -pRrq 2>/dev/null | awk -F: '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {print $1}' | sort -u)"})
+  compadd -a targets
 }
 
 # Turbo mode: plugins load after prompt for snappy shell startup
@@ -140,14 +180,6 @@ if command -v kubectl >/dev/null; then
 fi
 
 command -v terraform >/dev/null && alias tf=terraform
-
-# Make: complete only targets (built-in _make also offers every env var as VAR=)
-_make_targets() {
-  local targets
-  targets=(${(f)"$(make -pRrq 2>/dev/null | awk -F: '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {print $1}' | sort -u)"})
-  compadd -a targets
-}
-compdef _make_targets make
 
 command -v assume >/dev/null && alias awsume='source assume'
 alias aws-populate='granted sso populate'
