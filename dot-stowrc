@@ -1,6 +1,6 @@
 --ignore=scripts
 --ignore=imgs
---ignore=.claude
+--ignore=^\.claude$
 --ignore=README.md
 --ignore=Brewfile
 --target=/Users/luboszkosnik

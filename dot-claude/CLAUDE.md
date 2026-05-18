@@ -1,0 +1,2 @@
+- Whenever you need to use python use UV instead
+- Use Pydantic instead of dataclass

@@ -71,10 +71,20 @@ fi
 # repo version so the symlinks point at our copies (not the system's).
 # WARNING: this also wipes uncommitted edits inside the repo. Bootstrap is
 # expected to run from a clean checkout.
-stow --adopt .
+# Pass --target and --dotfiles explicitly: on the very first run ~/.stowrc
+# does not exist yet (it gets created by this same stow command), so we
+# cannot rely on dot-stowrc being read automatically.
+stow --target="$HOME" --dotfiles --adopt .
 git restore .
 
-# 12. TPM plugins (needs ~/.tmux.conf in place, i.e. post-stow)
+# 12. Skills — re-hydrate global skills from ~/.agents/.skill-lock.json
+# (stowed in step 11). Local-only skills like apple-mail-cleanup are not
+# in the lock file and stay machine-local.
+if [[ -f ~/.agents/.skill-lock.json ]] && command -v npx >/dev/null; then
+  npx -y skills update -g -y || true
+fi
+
+# 13. TPM plugins (needs ~/.tmux.conf in place, i.e. post-stow)
 ~/.tmux/plugins/tpm/bin/install_plugins
 
 echo ""

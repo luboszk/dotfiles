@@ -141,6 +141,14 @@ fi
 
 command -v terraform >/dev/null && alias tf=terraform
 
+# Make: complete only targets (built-in _make also offers every env var as VAR=)
+_make_targets() {
+  local targets
+  targets=(${(f)"$(make -pRrq 2>/dev/null | awk -F: '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {print $1}' | sort -u)"})
+  compadd -a targets
+}
+compdef _make_targets make
+
 command -v assume >/dev/null && alias awsume='source assume'
 alias aws-populate='granted sso populate'
 
@@ -164,7 +172,4 @@ fi
 
 # ---- Starship ----
 eval "$(starship init zsh)"
-
-# Added by Windsurf
-export PATH="/Users/luboszkosnik/.codeium/windsurf/bin:$PATH"
 
