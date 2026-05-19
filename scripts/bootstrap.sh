@@ -84,7 +84,49 @@ if [[ -f ~/.agents/.skill-lock.json ]] && command -v npx >/dev/null; then
   npx -y skills update -g -y || true
 fi
 
-# 13. TPM plugins (needs ~/.tmux.conf in place, i.e. post-stow)
+# 13. Per-machine identity. Idempotent: prompts only for files that don't
+# already exist.
+# - ~/.zshenv sets DOTFILES_PROFILE so zsh sources ~/.zshrc.$PROFILE.
+# - ~/.gitconfig-{work,personal} layer real emails on top of dot-gitconfig's
+#   noreply default, scoped per-directory via includeIf.
+write_zshenv_profile() {
+  [[ -f ~/.zshenv ]] && { echo ">>> ~/.zshenv exists — skipping"; return; }
+  echo ""
+  local profile
+  while true; do
+    read -rp ">>> DOTFILES_PROFILE (work/personal, blank to skip): " profile
+    [[ -z $profile ]] && { echo ">>> Skipped ~/.zshenv"; return; }
+    [[ $profile == work || $profile == personal ]] && break
+    echo ">>> Invalid — must be 'work' or 'personal'"
+  done
+  echo "export DOTFILES_PROFILE=$profile" > ~/.zshenv
+  echo ">>> Wrote ~/.zshenv"
+}
+
+write_gitconfig_identity() {
+  local path=$1 label=$2 default_email=${3:-}
+  [[ -f $path ]] && { echo ">>> $path exists — skipping"; return; }
+  echo ""
+  local prompt=">>> $label email"
+  [[ -n $default_email ]] && prompt+=" [$default_email]"
+  read -rp "$prompt (blank to skip): " email
+  email=${email:-$default_email}
+  [[ -z $email ]] && { echo ">>> Skipped $label identity"; return; }
+  read -rp ">>> $label name [Lubosz Kosnik]: " name
+  name=${name:-Lubosz Kosnik}
+  cat > "$path" <<EOF
+[user]
+	name = $name
+	email = $email
+EOF
+  echo ">>> Wrote $path"
+}
+
+write_zshenv_profile
+write_gitconfig_identity ~/.gitconfig-work     "work"
+write_gitconfig_identity ~/.gitconfig-personal "personal"
+
+# 14. TPM plugins (needs ~/.tmux.conf in place, i.e. post-stow)
 ~/.tmux/plugins/tpm/bin/install_plugins
 
 echo ""
@@ -95,8 +137,6 @@ echo "    All machines:"
 echo "    - Open VSCode → Cmd+Shift+P → 'Settings Sync: Turn On' → sign in with GitHub"
 echo ""
 echo "    Work machine (M4):"
-echo "    - Add to ~/.zshenv:  export DOTFILES_PROFILE=work"
-echo "    - Create ~/.gitconfig-work with your work [user] email block"
 echo "    - Run: op signin"
 echo "    - Run: granted sso login --sso-region <region> --start-url https://<org>.awsapps.com/start"
 echo "    - Run: granted sso populate --sso-region <region> --start-url https://<org>.awsapps.com/start"
