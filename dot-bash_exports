@@ -23,3 +23,14 @@ export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/src/git/scripts:$PATH"
 
 # ---- mise (per-repo tool versions; auto-activates on cd) ----
 command -v mise >/dev/null && eval "$(mise activate zsh)"
+
+# ---- SSH agent: auto-load passphraseless default keys ----
+# `ssh-add -l` is a fast no-op when keys are already loaded (exit 0).
+# Exit 1 = agent running but empty -> we load. Exit 2 = no agent -> skip.
+# Loads whichever standard key files exist (RSA on personal, ECDSA on work).
+if ! ssh-add -l >/dev/null 2>&1; then
+  for _key in ~/.ssh/id_ed25519 ~/.ssh/id_ecdsa ~/.ssh/id_rsa; do
+    [[ -f $_key ]] && ssh-add -q "$_key" 2>/dev/null
+  done
+  unset _key
+fi
