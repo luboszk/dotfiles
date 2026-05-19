@@ -71,10 +71,10 @@ fi
 # repo version so the symlinks point at our copies (not the system's).
 # WARNING: this also wipes uncommitted edits inside the repo. Bootstrap is
 # expected to run from a clean checkout.
-# Pass --target and --dotfiles explicitly: on the very first run ~/.stowrc
-# does not exist yet (it gets created by this same stow command), so we
-# cannot rely on dot-stowrc being read automatically.
-stow --target="$HOME" --dotfiles --adopt .
+# Stow reads .stowrc from cwd; the repo ships a tracked symlink
+# .stowrc -> dot-stowrc so --target, --dotfiles, and --ignore=... apply
+# from the very first run (no chicken-and-egg with ~/.stowrc).
+stow --adopt .
 git restore .
 
 # 12. Skills — re-hydrate global skills from ~/.agents/.skill-lock.json
