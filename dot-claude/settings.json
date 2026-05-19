@@ -21,7 +21,10 @@
   "skipAutoPermissionPrompt": true,
   "sandbox": {
     "enabled": true,
-    "autoAllowBashIfSandboxed": true
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowAllUnixSockets": true
+    }
   }
 
 }
