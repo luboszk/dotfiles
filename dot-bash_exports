@@ -5,6 +5,14 @@ elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+# Quiet & fast brew: skip auto-update before every install, skip post-install
+# cleanup chatter, drop env hints and analytics nags. Run `brew update`
+# manually when you actually want fresh formulae.
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_ANALYTICS=1
+
 # ---- Toolchains & PATH ----
 export EDITOR='nvim'
 export GOPATH="$HOME/go"
